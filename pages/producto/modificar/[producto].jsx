@@ -26,12 +26,6 @@ const Modificar = ()=>{
     const [cantidad,setCantidad] = useState("");
     const [descripcion,setDescripcion] = useState("");
 
-    const getProducto = async()=>{
-        const response = await axios.get(`${process.env.SERVIDOR}/producto/show/${id}`);
-        console.log(response.data);
-        setProducto(response.data);
-    };
-
     const onSubmit = async (e)=>{
         e.preventDefault();
 
@@ -53,9 +47,15 @@ const Modificar = ()=>{
         setProducto({ ...producto, [name]: value });
     };
 
-    useEffect(()=>{
+    useEffect(() => {
+        const getProducto = async () => {
+          if (id === undefined) return;
+          const response = await axios.get(`${process.env.SERVIDOR}/producto/show/${id}`);
+          setProducto(response.data);
+        };
+    
         getProducto();
-    },[])
+    }, [id]);
 
     return(
         <div className="w-100">

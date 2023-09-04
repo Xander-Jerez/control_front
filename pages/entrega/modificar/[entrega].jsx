@@ -14,23 +14,21 @@ class Pestania extends Component {
 }
 
 const Modificar = ()=>{
-    const [producto,setProducto] = useState([]);
 
+    const [producto, setProducto] = useState([]);
     const router = useRouter();
     const id = router.query.entrega;
 
-    const getProducto = async()=>{
-        if (id === undefined) {
-            return;
-        }
+    useEffect(() => {
+        const getProducto = async () => {
+        if (id === undefined) return;
         const response = await axios.get(`${process.env.SERVIDOR}/entrega/show/${id}`);
         setProducto(response.data);
-    };
+        };
 
-    useEffect(()=>{
         getProducto();
-    },[])
-    console.log("Información del producto: ", producto);
+    }, [id]);
+  
     return(
         <div className="w-100">
             <Pestania></Pestania>

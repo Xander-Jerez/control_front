@@ -6,9 +6,6 @@ import Select from 'react-select';
 const EditarEntrega = ({ producto })=>{
     const [tipo, setTipo] = useState(producto?.tipo || "");
     const router = useRouter();
-    if (producto === undefined || producto.length === 0) {
-        return
-    }
     const [marca,setMarca] = useState(producto.marca || "");
     const [modelo,setModelo] = useState(producto.modelo || "");
     const [n_serie,setN_serie]= useState(producto.n_serie || "");
@@ -20,16 +17,13 @@ const EditarEntrega = ({ producto })=>{
     const [descripcion,setDescripcion] = useState(producto.descripcion || "");
     const [procesador,setProcesador] = useState(producto.procesador || "");
     const [ram,setRam]= useState(producto.ram || "");
-    const [tipo_almacenamiento,setTipo_almacenamiento] = useState(producto.tipo_almacenamiento  "");
+    const [tipo_almacenamiento,setTipo_almacenamiento] = useState(producto.tipo_almacenamiento || "");
     const [capacidad,setCapacidad] = useState(producto.capacidad || "");
     const [observacion,setObservacion]= useState(producto.observacion || "");
     const [otorga,setOtorga] = useState(producto.otorga || "");
     const [recibe,setRecibe]= useState(producto.recibe || "");
     const [selectedOption, setSelectedOption] = useState(null);
     const [listadoProductos, setListadoProductos] = useState([]);
-
-
-
 
     const onSubmitEditar = async (e)=>{
         e.preventDefault();
@@ -76,6 +70,10 @@ const EditarEntrega = ({ producto })=>{
         setTipo(selectedOption.value);  // Actualizando el estado "tipo"
         console.log(`Option selected:`, selectedOption);
     };  
+
+    if (producto === undefined || producto.length === 0) {
+        return
+    }
 
     return(
         <form  className="w-75 p-3 border rounded was-validated d-flex justify-content-center m-auto row">

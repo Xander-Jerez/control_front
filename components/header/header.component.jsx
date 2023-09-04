@@ -1,6 +1,7 @@
 
 import { useRouter } from 'next/router';
 import React, { useState } from "react";
+import Image from 'next/image'
 
 const Header = ()=>{
 
@@ -11,7 +12,7 @@ const Header = ()=>{
 
             <a href="/producto/..">
                 <div style={{ position: 'absolute', top: 40, left: 15, border: 'red', }}>
-                    <img src="https://www.puertocoronel.cl/img/sitio/logo.png" alt="Random Image"/>
+                    <Image src="https://www.puertocoronel.cl/img/sitio/logo.png" alt="Random Image" width={150} height={50} />
                 </div>
             </a>
 
