@@ -1,0 +1,13 @@
+.header{
+    background-color: rgb(246, 154, 42);
+    height: 100px;
+    display: flex;
+    align-items: right;
+    justify-content: right;
+    color: white;
+    font-size: 75px;
+}
+
+.css-13cymwt-control{
+    border: 1px solid #198754 !important;
+}
