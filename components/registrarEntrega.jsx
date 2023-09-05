@@ -24,10 +24,12 @@ const RegistrarEntrega = ()=>{
     const [selectedOption, setSelectedOption] = useState(null);
     const [listadoProductos, setListadoProductos] = useState([]); 
     const router = useRouter();
+    const [isSubmitted, setIsSubmitted] = useState(false); 
+
 
     const onSubmit = async (e)=>{
             e.preventDefault();
-
+            setIsSubmitted(true); 
              // Validación manual de campos requeridos
             if (!tipo || !marca || !modelo || !n_serie || !cod_servicio || fecha_compra === "" || !otorga || !recibe) {
                 alert("Todos los campos requeridos deben estar completados.");
@@ -76,8 +78,8 @@ const RegistrarEntrega = ()=>{
     // Manejar cambios en el selector
     const handleChange = (selectedOption) => {
         setSelectedOption(selectedOption);
-        setTipo(selectedOption.value);  // Actualizando el estado "tipo"
-        console.log(`Option selected:`, selectedOption);
+        setTipo(selectedOption.value);
+        
     };    
 
     return(
@@ -90,45 +92,51 @@ const RegistrarEntrega = ()=>{
                     options={selectOptions}
                     isSearchable={true} // Activar la búsqueda
                     styles={{ menu: provided => ({ ...provided, zIndex: 9999 }) }} // Aumentar el z-index del menú
+                    required
+                    isRequired
                 />
+                {isSubmitted && !tipo ? <div className="invalid-feedback" style={{display: 'block'}}>Por favor ingrese un tipo</div> : null}
             </div>
 
             <div className="col-5"><br />
                 <label>Marca</label>
                 <input onChange={(e)=>{setMarca(e.target.value)}} className="form-control" placeholder="Marca del dispositivo" id="" cols="20" rows="5" required></input>
+                <div className="invalid-feedback">Por favor ingresar una marca</div>
             </div>
 
             <div className="col-5"><br />
                 <label>Modelo</label>
                 <input onChange={(e)=>{setModelo(e.target.value)}} className="form-control" placeholder="Modelo" id="" cols="20" rows="5" required></input>
+                <div className="invalid-feedback">Por favor ingresar un modelo</div>
             </div>
 
             <div className="col-5"><br />
                 <label>Número de serie</label>
-                <input  type="number " onChange={(e)=>{setN_serie(e.target.value)}} className="form-control" placeholder="Ingrese Número de Serie" pattern="^([0-9]+)$" maxlength="3"/>
+                <input  onChange={(e)=>{setN_serie(e.target.value)}} className="form-control" placeholder="Ingrese Número de Serie" pattern="^([0-9]+)$" maxlength="3" required/>
                 <div className="invalid-feedback">Por favor ingrese un número entero</div>
             </div>
 
             <div className="col-5"><br />
                 <label>Código de servicio</label>
-                <input onChange={(e)=>{setCod_servicio(e.target.value)}} className="form-control" placeholder="Código de Servicio" id="" cols="20" rows="5" ></input>
+                <input onChange={(e)=>{setCod_servicio(e.target.value)}} className="form-control" placeholder="Código de Servicio" id="" cols="20" rows="5" required></input>
+                <div className="invalid-feedback">Por favor ingresar un código de servicio</div>
             </div>
 
             <div className="col-5"><br />
                 <label>Imei</label>
-                <input  type="number " onChange={(e)=>{setImei(e.target.value)}} className="form-control" placeholder="Imei" pattern="^([0-9]+)$" maxlength="10"/>
+                <input  type="number " onChange={(e)=>{setImei(e.target.value)}} className="form-control" placeholder="Imei" pattern="^([0-9]+)$" maxlength="10" required/>
                 <div className="invalid-feedback">Por favor ingrese un número entero</div>
             </div>
 
             <div className="col-5"><br />
                 <label>Pin</label>
-                <input  type="number " onChange={(e)=>{setPin(e.target.value)}} className="form-control" placeholder="Pin" pattern="^([0-9]+)$" maxlength="10"/>
+                <input  type="number " onChange={(e)=>{setPin(e.target.value)}} className="form-control" placeholder="Pin" pattern="^([0-9]+)$" maxlength="10" required/>
                 <div className="invalid-feedback">Por favor ingrese un número entero</div>
             </div>
 
             <div className="col-5"><br />
                 <label>Puk</label>
-                <input  type="number " onChange={(e)=>{setPuk(e.target.value)}} className="form-control" placeholder="Puk" pattern="^([0-9]+)$" maxlength="10"/>
+                <input  type="number " onChange={(e)=>{setPuk(e.target.value)}} className="form-control" placeholder="Puk" pattern="^([0-9]+)$" maxlength="10" required/>
                 <div className="invalid-feedback">Por favor ingrese un número entero</div>
             </div>
 
@@ -140,34 +148,38 @@ const RegistrarEntrega = ()=>{
 
             <div className="col-5"><br />
                 <label>Procesador</label>
-                <input onChange={(e)=>{setProcesador(e.target.value)}} className="form-control" placeholder="Procesador" id="" cols="20" rows="5" ></input>
+                <input onChange={(e)=>{setProcesador(e.target.value)}} className="form-control" placeholder="Procesador" id="" cols="20" rows="5" required></input>
+                <div className="invalid-feedback">Por favor ingresar un procesador</div>
             </div>
 
             <div className="col-5"><br />
                 <label>RAM</label>
-                <input  type="number " onChange={(e)=>{setRam(e.target.value)}} className="form-control" placeholder="Memoria Ram" pattern="^([0-9]+)$" maxlength="3"/>
+                <input  type="number " onChange={(e)=>{setRam(e.target.value)}} className="form-control" placeholder="Memoria Ram" pattern="^([0-9]+)$" maxlength="3" required/>
                 <div className="invalid-feedback">Por favor ingrese un número entero</div>
             </div>
 
             <div className="col-5"><br />
                 <label>Tipo de almacenamiento</label>
-                <input onChange={(e)=>{setTipo_almacenamiento(e.target.value)}} className="form-control" placeholder="tipo de almacenamiento" id="" cols="20" rows="5" ></input>
+                <input onChange={(e)=>{setTipo_almacenamiento(e.target.value)}} className="form-control" placeholder="tipo de almacenamiento" id="" cols="20" rows="5" required></input>
+                <div className="invalid-feedback">Por favor ingresar un tipo de almacenamiento</div>
             </div>
 
             <div className="col-5"><br />
                 <label>Capacidad</label>
-                <input  type="number " onChange={(e)=>{setCapacidad(e.target.value)}} className="form-control" placeholder="Capacidad" pattern="^([0-9]+)$" maxlength="3"/>
+                <input  type="number " onChange={(e)=>{setCapacidad(e.target.value)}} className="form-control" placeholder="Capacidad" pattern="^([0-9]+)$" maxlength="3" required/>
                 <div className="invalid-feedback">Por favor ingrese un número entero</div>
             </div>
 
             <div className="col-5"><br />
                 <label>Observación</label>
                 <textarea onChange={(e)=>{setObservacion(e.target.value)}} className="form-control" placeholder="Observación" id="" cols="20" rows="1" ></textarea>
+                <div className="invalid-feedback">Por favor ingrese una observación</div>
             </div>
 
             <div className="col-5"><br />
                 <label>Descripción</label>
                 <textarea onChange={(e)=>{setDescripcion(e.target.value)}} className="form-control" placeholder="Descripción" id="" cols="20" rows="1" ></textarea>
+                <div className="invalid-feedback">Por favor ingrese una descripción</div>
             </div>
 
             <div className="col-5"><br />

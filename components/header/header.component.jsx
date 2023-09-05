@@ -8,7 +8,7 @@ const Header = ()=>{
     const router = useRouter()
 
     return(
-        <div className="w-100 header" style={{position: 'fixed'}}>
+        <div className="w-100 header" style={{position: 'fixed', zIndex:999 }}>
 
             <a href="/producto/..">
                 <div style={{ position: 'absolute', top: 40, left: 15, border: 'red', }}>

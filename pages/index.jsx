@@ -64,7 +64,7 @@ const Index = () => {
         <MostrarImagen />
         <Heading background='0' opacity='100' as="h1" fontSize="2.1x" className="header" textAlign="center">
           <div style={{ position: 'fixed', top: 150, left: 0, width: "100%", height: "100%", fontFamily: 'Albertus BLACK' }}>
-            Departamento de <br /> Tecnolog      as de la <br /> Informaci      n
+            Departamento de <br /> Tecnologías de la <br /> Información
             <div>
               <Button style={{ width: '250px', fontSize: '30px', padding: '50px' }} colorScheme="orange" textAlign="center" onClick={() => router.push('./producto/produc_index')}>Inventario</Button>
               <Button style={{ width: '250px', fontSize: '30px', padding: '50px', marginLeft: '20px' }} colorScheme="orange" textAlign="center" onClick={() => router.push('./entrega/entrega_index')}>Entrega</Button>

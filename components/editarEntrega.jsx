@@ -102,6 +102,7 @@ const EditarEntrega = ({ producto })=>{
                     value={selectedOption}
                     onChange={handleChange}
                     options={selectOptions}
+                    required
                 />
             </div>
             <div className="col-5"><br />
@@ -116,7 +117,7 @@ const EditarEntrega = ({ producto })=>{
                     required
                     value={formData.marca || ""}
                 />
-
+                <div className="invalid-feedback">Por favor ingrese una Marca</div>
             </div>
 
             <div className="col-5"><br />
@@ -131,6 +132,7 @@ const EditarEntrega = ({ producto })=>{
                     required
                     value={formData.modelo || ""}
                 />
+                <div className="invalid-feedback">Por favor ingrese un Modelo</div>
             </div>
 
             <div className="col-5"><br />
@@ -158,7 +160,9 @@ const EditarEntrega = ({ producto })=>{
                     cols="20"
                     rows="5"
                     value={formData.cod_servicio || ""}
+                    required
                 />
+                <div className="invalid-feedback">Por favor ingrese un Código de Servicio</div>
             </div>
 
             <div className="col-5"><br />
@@ -173,7 +177,7 @@ const EditarEntrega = ({ producto })=>{
                     required
                     value={formData.imei || ""}
                 />
-                <div className="invalid-feedback">Por favor ingrese un número entero</div>
+                <div className="invalid-feedback">Por favor ingrese un Imei</div>
             </div>
 
             <div className="col-5"><br />
@@ -188,7 +192,7 @@ const EditarEntrega = ({ producto })=>{
                     required
                     value={formData.pin || ""}
                 />
-                <div className="invalid-feedback">Por favor ingrese un número entero</div>
+                <div className="invalid-feedback">Por favor ingrese un Pin</div>
             </div>
 
             <div className="col-5"><br />
@@ -203,7 +207,7 @@ const EditarEntrega = ({ producto })=>{
                     required
                     value={formData.puk || ""}
                 />
-                <div className="invalid-feedback">Por favor ingrese un número entero</div>
+                <div className="invalid-feedback">Por favor ingrese un Puk</div>
             </div>
 
             <div className="col-5"><br />
@@ -216,8 +220,7 @@ const EditarEntrega = ({ producto })=>{
                     required
                     value={formData.fecha_compra || ""}
                 />
-
-                <div className="invalid-feedback">Por favor llene el campo</div>
+                <div className="invalid-feedback">Por favor ingrese una Fecha de Compra</div>
             </div>
 
             <div className="col-5"><br />
@@ -232,6 +235,7 @@ const EditarEntrega = ({ producto })=>{
                     required
                     value={formData.procesador || ""}
                 />
+                <div className="invalid-feedback">Por favor ingrese un Procesador</div>
             </div>
 
             <div className="col-5"><br />
@@ -246,7 +250,7 @@ const EditarEntrega = ({ producto })=>{
                     required
                     value={formData.ram || ""}
                 />
-                <div className="invalid-feedback">Por favor ingrese un número entero</div>
+                <div className="invalid-feedback">Por favor ingrese la cantidad de Memoria Ram</div>
             </div>
 
             <div className="col-5"><br />
@@ -261,6 +265,7 @@ const EditarEntrega = ({ producto })=>{
                     required
                     value={formData.tipo_almacenamiento || ""}
                 />
+                <div className="invalid-feedback">Por favor ingrese un tipo de almacenamiento</div>
             </div>
 
             <div className="col-5"><br />
@@ -275,7 +280,7 @@ const EditarEntrega = ({ producto })=>{
                     required
                     value={formData.capacidad || ""}
                 />
-                <div className="invalid-feedback">Por favor ingrese un número entero</div>
+                <div className="invalid-feedback">Por favor ingrese la capacidad</div>
             </div>
 
             <div className="col-5"><br />

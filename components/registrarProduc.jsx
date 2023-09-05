@@ -31,7 +31,6 @@ const RegistrarProducto = ()=>{
             <div className="col-5">
                 <label>Código</label>
                 <input onChange={(e)=>{setCodigo(e.target.value)}} value={codigo} className="form-control" placeholder="Código" pattern="^([0-9]+)$" minlength="2" maxlength="10" required/>
-
                 <div className="invalid-feedback">Por favor ingrese números enteros</div>
             </div>
 
