@@ -49,9 +49,9 @@ const Modificar = ()=>{
 
     useEffect(() => {
         const getProducto = async () => {
-          if (id === undefined) return;
-          const response = await axios.get(`${process.env.SERVIDOR}/producto/show/${id}`);
-          setProducto(response.data);
+            if (id === undefined) return;
+            const response = await axios.get(`${process.env.SERVIDOR}/producto/show/${id}`);
+            setProducto(response.data);
         };
     
         getProducto();

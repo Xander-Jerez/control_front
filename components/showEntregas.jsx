@@ -108,7 +108,7 @@ const ShowEntregas = ()=>{
                                                 <button onClick={()=>{showDetailsEntrega(entrega._id)}} className="btn btn-primary ms-2">Ocultar detalles</button>
                                             </div>
                                             <div className="d-flex gap-xl-5 mt-1">
-                                                <div>
+                                                <div className="d-flex flex-column pe-5">
                                                     <p><span className="fw-semibold text-capitalize">tipo:</span> {entrega.tipo}</p>
                                                     <p><span className="fw-semibold text-capitalize">marca:</span> {entrega.marca}</p>
                                                     <p><span className="fw-semibold text-capitalize">modelo:</span> {entrega.modelo}</p>
@@ -119,7 +119,7 @@ const ShowEntregas = ()=>{
                                                     <p><span className="fw-semibold text-capitalize">puk:</span> {entrega.puk}</p>
                                                 </div>
                                                 <div>
-                                                    <p><span className="fw-semibold text-capitalize">fecha de compra:</span> {moment(entrega.fecha_compra).format("DD/MM/YYYY")}</p>
+                                                    <p><span className="fw-semibold text-capitalize">fecha de compra:</span> {entrega.fecha_compra ? moment(entrega.fecha_compra).format("DD/MM/YYYY") : "Fecha no disponible"}</p>
                                                     <p><span className="fw-semibold text-capitalize">descripcion:</span> {entrega.descripcion}</p>
                                                     <p><span className="fw-semibold text-capitalize">procesador:</span> {entrega.procesador}</p>
                                                     <p><span className="fw-semibold text-capitalize">ram:</span> {entrega.ram}</p>

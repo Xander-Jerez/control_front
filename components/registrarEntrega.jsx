@@ -27,6 +27,13 @@ const RegistrarEntrega = ()=>{
 
     const onSubmit = async (e)=>{
             e.preventDefault();
+
+             // Validación manual de campos requeridos
+            if (!tipo || !marca || !modelo || !n_serie || !cod_servicio || fecha_compra === "" || !otorga || !recibe) {
+                alert("Todos los campos requeridos deben estar completados.");
+                return;
+            }
+            
             const fecha_nueva = new Date(fecha_compra);
             console.log(fecha_nueva);
             const data = {
@@ -177,7 +184,7 @@ const RegistrarEntrega = ()=>{
 
             <div className="col-10 d-flex justify-content-center mt-4">
                 <button onClick ={(e)=>{onSubmit(e)}} type="submit" className="btn btn-primary w-40 ms-4" >Guardar datos</button>
-                <button onClick={()=>{router.push("/entrega")}} className="btn btn-danger w-40 ms-4" >Cancelar</button>
+                <button onClick={()=>{router.push("/entrega/entrega_index")}} className="btn btn-danger w-40 ms-4" >Cancelar</button>
             </div>
 
         </form>
