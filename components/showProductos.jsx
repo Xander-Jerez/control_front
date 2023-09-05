@@ -69,7 +69,7 @@ const ShowProductos = ()=>{
     if(isLoading){
         return (
             <div className="w-100 m-auto" >
-                <h1 className="text-center mt-3 h2" style={{fontFamily: 'Albertus'}}>LISTADO DE PRODUCTOS</h1>
+                <h1 className="text-center mt-3 h2">LISTADO DE PRODUCTOS</h1>
                 <div className="w-75 d-flex align-items-center">
                     <button className="btn btn-primary ms-3 mt-2 " onClick={()=>{router.push("registrar/reg_product/")}} >Registrar Producto</button>
                     <div className="containerInput">
@@ -90,7 +90,15 @@ const ShowProductos = ()=>{
                         </tr>
                     </thead>
                     <tbody>
-                        {
+                    {productosFiltrados.length === 0 ? (
+        <tr>
+            <td colSpan="6" className="text-center">
+                <div className="alert alert-warning text-center" role="alert">
+                    No se encontraron productos.
+                </div>
+            </td>
+        </tr>
+    ) : (
                             productosFiltrados.map((producto,idx)=>{
                                 document.body.style.background ='#FFFFFF';
                                 if (producto.cantidad==0 ) {
@@ -139,7 +147,8 @@ const ShowProductos = ()=>{
                                     }
                                 }
                             })
-                        }
+                        )}
+                        
                     </tbody>
                 </table>
             </div>
